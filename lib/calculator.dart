@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 import 'memory.dart';
 
@@ -9,6 +10,27 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
+  @override
+  Widget build(BuildContext context) {
+    return new SplashScreen(
+        seconds: 2,
+        navigateAfterSeconds: new AfterSplash(),
+        title: new Text(
+          'Calculadora',
+          style: new TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
+          ),
+        ),
+        image: new Image.asset('assets/background.png'),
+        backgroundColor: Colors.white,
+        styleTextUnderTheLoader: new TextStyle(),
+        photoSize: 100.0,
+        loaderColor: Colors.red);
+  }
+}
+
+class AfterSplash extends State<Calculator> {
   final _memory = Memory();
 
   @override
@@ -61,7 +83,9 @@ class _CalculatorState extends State<Calculator> {
   }
 
   Widget _buildKeyboardButton(String label,
-      {int flex = 1, Color textColor = Colors.white, Color backgroundColor = Colors.black}) {
+      {int flex = 1,
+      Color textColor = Colors.white,
+      Color backgroundColor = Colors.black}) {
     return Expanded(
       flex: flex,
       child: RaisedButton(
