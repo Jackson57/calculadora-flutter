@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import 'memory.dart';
@@ -30,7 +31,6 @@ class _CalculatorState extends State<Calculator> {
   }
 }
 
-
 class AfterSplash extends StatefulWidget {
   @override
   _AfterSplash createState() => _AfterSplash();
@@ -46,6 +46,16 @@ class _AfterSplash extends State<AfterSplash> {
         backgroundColor: Colors.black,
         title: Text('Calculadora'),
         automaticallyImplyLeading: false,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.share,
+            ),
+            onPressed: (){
+              Share.share('Calculadora Flutter');
+            },
+          )
+        ],
       ),
       body: Column(
         children: <Widget>[
