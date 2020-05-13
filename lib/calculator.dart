@@ -13,8 +13,8 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
-        seconds: 2,
-        navigateAfterSeconds: new AfterSplash(),
+        seconds: 10,
+        navigateAfterSeconds: AfterSplash(),
         title: new Text(
           'Calculadora',
           style: new TextStyle(
@@ -30,7 +30,13 @@ class _CalculatorState extends State<Calculator> {
   }
 }
 
-class AfterSplash extends State<Calculator> {
+
+class AfterSplash extends StatefulWidget {
+  @override
+  _AfterSplash createState() => _AfterSplash();
+}
+
+class _AfterSplash extends State<AfterSplash> {
   final _memory = Memory();
 
   @override
@@ -39,6 +45,7 @@ class AfterSplash extends State<Calculator> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text('Calculadora'),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: <Widget>[
