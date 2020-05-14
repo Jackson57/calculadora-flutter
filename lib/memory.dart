@@ -6,6 +6,7 @@ class Memory {
   int _bufferIndex = 0;
 
   String result = '0';
+  String history = '';
 
   Memory() {
     _clear();
@@ -17,6 +18,7 @@ class Memory {
     _bufferIndex = 0;
     _operation = null;
     _usedOperation = false;
+    history = '';
   }
 
   void applyCommand(String command) {
@@ -54,14 +56,13 @@ class Memory {
     if (_bufferIndex == 0) {
       _bufferIndex = 1;
 
-      if (operation == '=') 
-        _operation = operation;
+      if (operation == '=') _operation = operation;
     } else {
+      history = '${_buffer[0]} $_operation ${_buffer[1]} =';
       _buffer[0] = _calculate();
     }
 
-    if (operation != '=') 
-      _operation = operation;
+    if (operation != '=') _operation = operation;
 
     result = _buffer[0].toString();
     result = result.endsWith('.0') ? result.split('.')[0] : result;

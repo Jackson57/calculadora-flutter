@@ -51,12 +51,13 @@ class _AfterSplash extends State<AfterSplash> {
             icon: Icon(
               Icons.share,
             ),
-            onPressed: (){
+            onPressed: () {
               Share.share('Calculadora Flutter');
             },
           )
         ],
       ),
+      resizeToAvoidBottomPadding: false,
       body: Column(
         children: <Widget>[
           _buildDisplay(),
@@ -77,7 +78,15 @@ class _AfterSplash extends State<AfterSplash> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(0,0,8,0),
+              child: Text(
+                _memory.history,
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.end,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0,0,8,0),
               child: AutoSizeText(
                 _memory.result,
                 minFontSize: 20.0,
