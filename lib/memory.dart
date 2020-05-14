@@ -58,7 +58,7 @@ class Memory {
 
       if (operation == '=') _operation = operation;
     } else {
-      history = '${_buffer[0]} $_operation ${_buffer[1]} =';
+      history = '${_buffer[0]} $_operation ${_buffer[1]} ' + history;
       _buffer[0] = _calculate();
     }
 

@@ -83,6 +83,7 @@ class _AfterSplash extends State<AfterSplash> {
                 _memory.history,
                 style: TextStyle(color: Colors.white),
                 textAlign: TextAlign.end,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             Padding(
